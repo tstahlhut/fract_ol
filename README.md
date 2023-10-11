@@ -44,6 +44,16 @@ The Mandelbrot set is a two-dimensional set defined in the complex plane as the 
  and thus not diverging to infinity.
  The boundary of the Mandelbrot set is a fractal curve and "exhibits an infinitely complicated boundary that reveals progressively ever-finer recursive detail at increasing magnifications" (Wikipedia).
 
+C is between -2 and 2 as everything beyond that radius in the complex plane diverges for sure with this calculation. 
+At the beginning of each iteration, z equals 0. Afterwards, z equals the result of the previous calculation.
+E.g. $c=1/4$
+$z_{1]=0^2+1/4$
+$z_{2}=1/4^2+1/4$
+$z_{3}=5/16^2+1/4$
+and so forth.
+
+Now you can set thresholds for iterations and assign colours to it. 
+
  "The "style" of this recursive detail depends on the region of the set boundary being examined. Mandelbrot set images may be created by sampling the complex numbers and testing, for each sample point c c, whether the sequence f c ( 0 ) , f c ( f c ( 0 ) ) , … {\displaystyle f_{c}(0),f_{c}(f_{c}(0)),\dotsc } goes to infinity. Treating the real and imaginary parts of c c as image coordinates on the complex plane, pixels may then be colored according to how soon the sequence | f c ( 0 ) | , | f c ( f c ( 0 ) ) | , … {\displaystyle |f_{c}(0)|,|f_{c}(f_{c}(0))|,\dotsc } crosses an arbitrarily chosen threshold (the threshold must be at least 2, as -2 is the complex number with the largest magnitude within the set, but otherwise the threshold is arbitrary). If c c is held constant and the initial value of z z is varied instead, the corresponding Julia set for the point c c is obtained. " (Wikipedia: https://en.wikipedia.org/wiki/Mandelbrot_set)
 
 ## Bringing Fractals on the Screen
@@ -58,7 +68,12 @@ Through iteration the patterns are created. The result of the equation is our ne
 
 Outside the radius of 2, all iterations diverge. Therefore we stay between -2 and 2.
 
-Nice explaining video of the Mandelbrot set: https://www.youtube.com/watch?v=FFftmWSzgmk
+If it is stable (finite), we colour it black.
+If it is unstable (explodes, goes to infinity), there will be a colour. The colour differs in accordance to how many iterations we need for it to "explode", i.e. grow so big that it goes out of the radius. Thus, the intersting patterns in which we can zoom in infinitely are the boundaries of the Mandelbrot set. And they are so interesting and different because only a tiny change in c leads to a huge difference in the iteration and result. 
+
+Nice explaining video of the Mandelbrot set: 
+https://www.youtube.com/watch?v=NGMRB4O922I
+https://www.youtube.com/watch?v=FFftmWSzgmk
 
 
 
