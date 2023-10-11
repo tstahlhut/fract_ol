@@ -33,6 +33,9 @@ The most common fractals are defined in the two- and three-dimensional Euclidean
 
 ### Mandelbrot Set
 
-The Mandelbrot set is a two-dimensional set defined in the complex plane as the complex number c:
-    which the function $f_{c}(z)=z^{2}+c$
-    $ z n + 1 = z n 2 + c {\displaystyle z_{n+1}=z_{n}^{2}+c}
+The Mandelbrot set is a two-dimensional set defined in the complex plane as the complex number c, with
+                           $z_{n+1}=z_{n}^{2}+c$
+ starting its iteration at $z = 0$
+ following the sequence $z_{0}, z_{1}, z_{2},$ ...
+ and thus not diverging to infinity.
+ 
