@@ -24,7 +24,7 @@ All other functions have to be written by the students themselves.
 
 (taken from the subject description)
 
-## What to know first
+## Background Knowledge
 
 ### What is a fractal?
 
