@@ -45,4 +45,18 @@ The Mandelbrot set is a two-dimensional set defined in the complex plane as the 
  The boundary of the Mandelbrot set is a fractal curve and "exhibits an infinitely complicated boundary that reveals progressively ever-finer recursive detail at increasing magnifications" (Wikipedia).
 
  "The "style" of this recursive detail depends on the region of the set boundary being examined. Mandelbrot set images may be created by sampling the complex numbers and testing, for each sample point c c, whether the sequence f c ( 0 ) , f c ( f c ( 0 ) ) , … {\displaystyle f_{c}(0),f_{c}(f_{c}(0)),\dotsc } goes to infinity. Treating the real and imaginary parts of c c as image coordinates on the complex plane, pixels may then be colored according to how soon the sequence | f c ( 0 ) | , | f c ( f c ( 0 ) ) | , … {\displaystyle |f_{c}(0)|,|f_{c}(f_{c}(0))|,\dotsc } crosses an arbitrarily chosen threshold (the threshold must be at least 2, as -2 is the complex number with the largest magnitude within the set, but otherwise the threshold is arbitrary). If c c is held constant and the initial value of z z is varied instead, the corresponding Julia set for the point c c is obtained. " (Wikipedia: https://en.wikipedia.org/wiki/Mandelbrot_set)
+
+## Bringing Fractals on the Screen
+
+We plot the Mandelbrot and Julia set on a 2D graph:
+x axis = real component of z
+y axis = imaginary component of z
+
+c = starting point of graph
+
+Through iteration the patterns are created. The result of the equation is our new starting point c. These iterations will either diverge or converge. If they diverge, a "null" point is created on the graph. Thus, you get the pattern. The colours are created by assigning the number of iterations colours. 
+
+
+Sources: https://ohmyphysics.com/blogs/news/introduction-to-fractals
+Wikipedia (en & de on the fractals, the sets, etc)
  
