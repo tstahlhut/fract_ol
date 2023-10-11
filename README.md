@@ -54,7 +54,12 @@ y axis = imaginary component of z
 
 c = starting point of graph
 
-Through iteration the patterns are created. The result of the equation is our new starting point c. These iterations will either diverge or converge. If they diverge, a "null" point is created on the graph. Thus, you get the pattern. The colours are created by assigning the number of iterations colours. 
+Through iteration the patterns are created. The result of the equation is our new starting point c. These iterations will either diverge or converge. If they diverge (go to infinity), a "null" point is created on the graph. Thus, you get the pattern. The colours are created by assigning the number of iterations colours. 
+
+Outside the radius of 2, all iterations diverge. Therefore we stay between -2 and 2.
+
+Nice explaining video of the Mandelbrot set: https://www.youtube.com/watch?v=FFftmWSzgmk
+
 
 
 Sources: https://ohmyphysics.com/blogs/news/introduction-to-fractals
