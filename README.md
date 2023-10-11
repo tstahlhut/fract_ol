@@ -26,3 +26,12 @@ All other functions have to be written by the students themselves.
 
 ## What is a fractal?
 
+The term fractal was coined by mathematican Benoît Mandelbrot in 1975 and is derived from the latin word fractus. 
+Fractals are geometric patterns or forms 
+
+The most common fractals are defined in the two- and three-dimensional Euclidean space and include for example the Mandelbrot and Julia set. Both of which are defined in the complex plane.
+
+### Mandelbrot Set
+
+The Mandelbrot set is a two-dimensional set defined in the complex plane as the complex number c:
+    which the function f c ( z ) = z 2 + c {\displaystyle f_{c}(z)=z^{2}+c}
