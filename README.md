@@ -26,6 +26,13 @@ All other functions have to be written by the students themselves.
 
 ## Background Knowledge
 
+### Complex Numbers
+
+Complex numbers are made of a real part and an imaginary part. The real part is a normal number. The imaginary number i a normal number multiplied by i. i represents the square root of -1 (imaginary because you can actually not take the square root of a negative number). 
+
+Complex numbers can be made graphically visible on a two-dimensional graph. The x axis represents the real part of the complex number and the y axis the imaginary part. 
+2+3i will then be located at: x = 2 and y = 3.
+
 ### What is a fractal?
 
 The term fractal was coined by mathematican Benoît Mandelbrot in 1975 and is derived from the latin word fractus. 
@@ -71,6 +78,12 @@ Everything < -1 and > 1, is coloured according to how fast it diverges to infini
 
 Introducing c, it becomes more interesting:
 Those iterations that do not diverge to inifity, either end at some point between -2 and 2 or they jump back and forth between different values inside the range of -2 and 2. Thus, any point whose orbit (sequence of iterations) escapes from the radius (-2 to 2) is known to be outside the Mandelbrot set. 
+
+Values above 0.25 quickly escape, below not.
+$0>= 0.25$ stay in Mandelbrot set.
+< -2: diverge to infinity
+-2 to 0.25: inside Mandelbrot set. (coloured black)
+-> This is the real number line (x axis) of the Mandelbrot set.
 
  "The "style" of this recursive detail depends on the region of the set boundary being examined. Mandelbrot set images may be created by sampling the complex numbers and testing, for each sample point c c, whether the sequence f c ( 0 ) , f c ( f c ( 0 ) ) , … {\displaystyle f_{c}(0),f_{c}(f_{c}(0)),\dotsc } goes to infinity. Treating the real and imaginary parts of c c as image coordinates on the complex plane, pixels may then be colored according to how soon the sequence | f c ( 0 ) | , | f c ( f c ( 0 ) ) | , … {\displaystyle |f_{c}(0)|,|f_{c}(f_{c}(0))|,\dotsc } crosses an arbitrarily chosen threshold (the threshold must be at least 2, as -2 is the complex number with the largest magnitude within the set, but otherwise the threshold is arbitrary). If c c is held constant and the initial value of z z is varied instead, the corresponding Julia set for the point c c is obtained. " (Wikipedia: https://en.wikipedia.org/wiki/Mandelbrot_set)
 
