@@ -87,6 +87,13 @@ $0>= 0.25$ stay in Mandelbrot set.
 
  "The "style" of this recursive detail depends on the region of the set boundary being examined. Mandelbrot set images may be created by sampling the complex numbers and testing, for each sample point c c, whether the sequence f c ( 0 ) , f c ( f c ( 0 ) ) , … {\displaystyle f_{c}(0),f_{c}(f_{c}(0)),\dotsc } goes to infinity. Treating the real and imaginary parts of c c as image coordinates on the complex plane, pixels may then be colored according to how soon the sequence | f c ( 0 ) | , | f c ( f c ( 0 ) ) | , … {\displaystyle |f_{c}(0)|,|f_{c}(f_{c}(0))|,\dotsc } crosses an arbitrarily chosen threshold (the threshold must be at least 2, as -2 is the complex number with the largest magnitude within the set, but otherwise the threshold is arbitrary). If c c is held constant and the initial value of z z is varied instead, the corresponding Julia set for the point c c is obtained. " (Wikipedia: https://en.wikipedia.org/wiki/Mandelbrot_set)
 
+ ## The Julia Set
+
+Julia sets can be obtained with different equations but interestingly, also with the same equation used for the Mandelbrot set: $z = z^2$.
+
+The only difference is that while the point of interest in the Mandelbrot set is c (and z starts at 0), the point of interest, i.e. the pixel, is z and c stays constant.
+
+
 ## Bringing Fractals on the Screen
 
 The Mandelbrot set and the Julia set are grounded on the same equation: $z = z^2 + c$
