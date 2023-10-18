@@ -6,7 +6,7 @@
 /*   By: tstahlhu <tstahlhu@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:45:17 by tstahlhu          #+#    #+#             */
-/*   Updated: 2023/10/17 11:46:01 by tstahlhu         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:06:39 by tstahlhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ int    complex_iteration(double zr, double zi, double cr, double ci)
         zr = pow(zr, 2) - pow(zi, 2) + cr;
         zi = 2 * zr * zi + ci;
         if (-2 > zr || zr > 2 || -2 > zi || zi > 2)
-            return (i);
+            break ;
     }
+    /*if (i < MAX_ITERATIONS)
+    	i = i + 2 - log(log(pow(zr, 2) + pow(zi, 2))) / log(2);*/
     return (i);
 }
 
@@ -38,30 +40,38 @@ void    my_pixel_put(t_data *img, int x, int y, int color)
     *(unsigned int*)dst = color;
 }
 
+double	conv_to_coord(double x)
+{
+	double	z;
+	double	centre;
+	double	ratio;
+
+	centre = (WIDTH - 1) / 2;
+	ratio = (WIDTH - 1) / SCALE;
+	z = (x - centre) / ratio;
+	return (z);
+}
+
 void    draw_image(t_data *img)
 {
     double x;
     double y;
-    double a;
-    double b;
     double i;
 
-    a = (WIDTH - 1) / 2;
-    b = (HEIGHT - 1) / 2;
     x = -1;
     while (++x <= WIDTH)
     {
         y = -1;
-        while (++y < HEIGHT)
+        while (++y <= HEIGHT)
         {
-            i = complex_iteration((x - a), (y - b), -0.5, 0.3);
+            i = complex_iteration(conv_to_coord(x), conv_to_coord(y), -1, 0.16);
             if (i == MAX_ITERATIONS)
                  my_pixel_put(img, x, y, 0x00000000);
             else
-                my_pixel_put(img, x, y, 0x00FFFF00);
+                my_pixel_put(img, x, y, (0x0000FF00 + i));
         }
     }
-   /* x = -1;
+    /*x = -1;
     while (++x <= WIDTH)
     {
         y = -1;

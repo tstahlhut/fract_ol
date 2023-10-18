@@ -6,7 +6,7 @@
 /*   By: tstahlhu <tstahlhu@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 10:45:26 by tstahlhu          #+#    #+#             */
-/*   Updated: 2023/10/13 15:18:25 by tstahlhu         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:06:02 by tstahlhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@
 # include <stdlib.h> /*exit*/
 # include <math.h>
 
-# define WIDTH 5
-# define HEIGHT 5
-# define MAX_ITERATIONS 1000
+# define WIDTH 600 
+# define HEIGHT 600
+# define SCALE 4 /*of coordinate system. if 6 it ranges from -3 to 3 */
+# define MAX_ITERATIONS 100
 
 typedef struct s_data
 {
@@ -54,7 +55,8 @@ int     deal_mouse(int button, int x, int y, void *param);
 
 /*image.c*/
 void    my_pixel_put(t_data *img, int x, int y, int color);
-int    complex_iteration(double zr, double zi, double cr, double ci);
+int	complex_iteration(double zr, double zi, double cr, double ci);
+double	conv_to_coord(double x);
 void    draw_image(t_data *img);
 
 /*fractol.c*/
