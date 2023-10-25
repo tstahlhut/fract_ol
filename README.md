@@ -1,5 +1,5 @@
 # fract_ol
-42 project: First graphical project of the core curriculum of 42 school
+42 project: First graphical project in the core curriculum of 42 school
 
 ## Description
 
