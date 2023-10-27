@@ -122,6 +122,9 @@ https://www.youtube.com/watch?v=FFftmWSzgmk
 Best (more detailed) explanation:
 https://www.youtube.com/watch?v=7MotVcGvFMg
 
+## Escape Time Algorithm
+"Escape conditions can be simple or complex. Because no complex number with a real or imaginary part greater than 2 can be part of the set, a common bailout is to escape when either coefficient exceeds 2. A more computationally complex method that detects escapes sooner, is to compute distance from the origin using the Pythagorean theorem, i.e., to determine the absolute value, or modulus, of the complex number. If this value exceeds 2, or equivalently, when the sum of the squares of the real and imaginary parts exceed 4, the point has reached escape. More computationally intensive rendering variations include the Buddhabrot method, which finds escaping points and plots their iterated coordinates. " (https://en.wikipedia.org/wiki/Plotting_algorithms_for_the_Mandelbrot_set)
+
 
 
 Sources: https://ohmyphysics.com/blogs/news/introduction-to-fractals
