@@ -19,6 +19,17 @@ void    init_zero(t_fractol *f)
     f->img = NULL;
 }
 
+void    init_var(t_fractol *f)
+{
+    init_zero(f);
+    f->cr = 0.0;
+    f->ci = 0.0;
+    f->COO[0] = (WIDTH - 1) / 2;
+    f->COO[1] = (HEIGHT - 1) / 2;
+    f->scale[0] = 4;
+    f->scale[1] = -4;
+}
+
 /*init_img inspired by 
 https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html*/
 
@@ -32,8 +43,7 @@ void    init_img(t_fractol *f)
                                                             &f->img->endian);
     if (!f->img->addr)
         close_window(f); 
-    draw_image(f->img);                                                  
-    mlx_put_image_to_window(f->mlx, f->win, f->img->img, 0, 0);
+    draw_image(f);                                                  
 }
 
 /* mlx_init is used to establish a connection to the graphical server.
@@ -53,10 +63,10 @@ void	open_window(t_fractol *f, char *name)
     f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, name);
     if (!f->win)
         error_exit(f, "new window failed to open");
+    init_img(f);
     mlx_key_hook(f->win, deal_key, f);
     mlx_mouse_hook(f->win, deal_mouse, f);
     mlx_hook(f->win, 17, 0L, x_close, f);
-    init_img(f);
     mlx_loop(f->mlx);
 	//mlx_pixel_put(set->mlx, set->win, 250, 250, 0xFFFFFF);
 	//mlx_key_hook(set->win, deal_key, set);

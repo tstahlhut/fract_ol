@@ -12,23 +12,66 @@
 
 #include "fractol.h"
 
+/* In order to zoom in or out, the image is newly created. Two parametres have
+    to be changed: COO and scale. The new COO (center/ coordinate of origin) 
+    is shifted accoring to the mouse position captured in "deal_mouse". 
+    By manipulating the scale the illusion of zooming is given. */
+
+void    zoom(int button, int x, int y, t_fractol *f)
+{
+   // f->COO[0] = f->COO[0] + (f->COO[0] - x);
+	//f->COO[1] = f->COO[1] + (f->COO[1] - y);
+   // f->COO[0] = x;
+    //f->COO[1] = y;
+    ft_printf("x = %i, y = %i", x, y);
+    if (button == 4)
+	{
+        f->scale[0] *= 0.9;
+        f->scale[1] *= 0.9;
+    }
+    if (button == 5)
+    {
+        f->scale[0] /= 0.9;
+        f->scale[1] /= 0.9;
+    }
+  //  mlx_destroy_image(f->mlx, f->img->img);
+    //free(f->img);
+    mlx_clear_window(f->mlx, f->win);
+    draw_image(f);
+}
+
 /* inspired by: https://users.math.yale.edu/public_html/People/
     frame/Fractals/MandelSet/ComplexIteration/ComplexIterEx.html */
+/* unoptimized escape time algorithm
+      while (i < MAX_ITERATIONS)
+    {
+        zr_temp = pow(zr, 2) - pow(zi, 2) + cr;
+        zi = 2 * zr * zi + ci;
+        zr = zr_temp;
+        if (-2 > zr || zr > 2 || -2 > zi || zi > 2)
+            return (i) ;
+        i++;
+    }
+    optimized escape time algorithm found on:
+    https://en.wikipedia.org/wiki/Plotting_algorithms_for_the_Mandelbrot_set */
 
 int    complex_iteration(double zr, double zi, double cr, double ci)
 {
     int i;
+    double zr2;
+    double zi2;
 
-    i = -1;
-    while (++i < MAX_ITERATIONS)
+    zr2 = 0;
+    zi2 = 0;
+    i = 0;
+    while (zr + zi <= 4 && i < MAX_ITERATIONS)
     {
-        zr = pow(zr, 2) - pow(zi, 2) + cr;
         zi = 2 * zr * zi + ci;
-        if (-2 > zr || zr > 2 || -2 > zi || zi > 2)
-            break ;
+        zr = zr2 - zi2 + cr;
+        zr2 = zr * zr;
+        zi2 = zi * zi;
+        i++;
     }
-    /*if (i < MAX_ITERATIONS)
-    	i = i + 2 - log(log(pow(zr, 2) + pow(zi, 2))) / log(2);*/
     return (i);
 }
 
@@ -40,37 +83,48 @@ void    my_pixel_put(t_data *img, int x, int y, int color)
     *(unsigned int*)dst = color;
 }
 
-double	conv_to_coord(double x)
+double	conv_to_coord(double x, int i, t_fractol *f)
 {
 	double	z;
-	double	centre;
 	double	ratio;
 
-	centre = (WIDTH - 1) / 2;
-	ratio = (WIDTH - 1) / SCALE;
-	z = (x - centre) / ratio;
+	ratio = (WIDTH - 1) / f->scale[i];                                            
+	z = (x - f->COO[i]) / ratio;
+    //printf("c = %f, z = %f", x, z);
 	return (z);
 }
 
-void    draw_image(t_data *img)
+void    draw_image(t_fractol *f)
 {
     double x;
     double y;
     double i;
 
     x = -1;
-    while (++x <= WIDTH)
+    while (++x < WIDTH)
     {
         y = -1;
-        while (++y <= HEIGHT)
+        while (++y < HEIGHT)
         {
-            i = complex_iteration(conv_to_coord(x), conv_to_coord(y), -1, 0.16);
-            if (i == MAX_ITERATIONS)
-                 my_pixel_put(img, x, y, 0x00000000);
+           // printf("\n\nx = %f  y = %f\n", x, y);
+         //   zr = conv_to_coord(x, 0, f);
+           // zi = conv_to_coord(y, 1, f);
+            //i = complex_iteration(zr, zi, f);
+            if (f->set == '1')
+                i = complex_iteration(0, 0, conv_to_coord(x, 0, f), conv_to_coord(y, 1, f));
+            else if (f->set == '2')
+                i = complex_iteration(conv_to_coord(x, 0, f), conv_to_coord(y, 1, f), f->cr, f->ci);
             else
-                my_pixel_put(img, x, y, (0x0000FF00 + i));
+                error_exit(f, "Set not valid\n");
+            if (i >= MAX_ITERATIONS)
+                 my_pixel_put(f->img, x, y, 0x00000000);
+            else if (i <= 50)
+                my_pixel_put(f->img, x, y, (0x00FFFF00 + i));
+            else
+                my_pixel_put(f->img, x, y, (0x0000FF00 + i));
         }
     }
+    mlx_put_image_to_window(f->mlx, f->win, f->img->img, 0, 0);
     /*x = -1;
     while (++x <= WIDTH)
     {
