@@ -118,11 +118,16 @@ unsigned int palette_J(t_fractol *f, unsigned int i)
 {
     if (f->palette == 0)
     {
-        if (i < 25)
-            return (i);
-        else
-            return (i * 1000);
+       // if (i == 0)
+        //  return (0x00000F);
+    //    else
+            return (0x0FFFFF - i * 10485);
     }
+    else if (f->palette == 3)
+    {
+        return (i * 10485);
+    }
+    
     else if (f->palette == 1)
     {
         if (i < 15)

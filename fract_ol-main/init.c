@@ -31,6 +31,8 @@ void    init_var(t_fractol *f)
     f->COO[1] = (HEIGHT - 1) / 2;
     f->scale[0] = 4;
     f->scale[1] = -4;
+    f->x = 0;
+    f->y = 0;
 }
 
 void    init_set(char *str, t_fractol *f)
