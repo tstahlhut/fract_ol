@@ -67,7 +67,10 @@ void	check_input(int argc, char **argv, t_fractol *f)
     if (argc < 2 || argc > 6)
         user_msg();
     if (argc >= 2)
+    {
+        printf("argv[%i]: %s", 1, argv[1]);
         init_set(argv[1], f);
+    }
     if (f->set == '2')
     {
         f->ci = 0.8;

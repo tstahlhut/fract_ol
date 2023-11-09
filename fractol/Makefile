@@ -17,9 +17,9 @@ I_PATH	= ./../minilibx-linux/ #/usr/local/include
 L_PATH	= ./../minilibx-linux/  #/usr/local/lib/
 LIB	= -lmlx -lXext -lX11 -lm
 
-CFILES	= main.c init.c input_check.c image.c error_exit_handlings.c utils.c \
+CFILES	= main.c init.c input_check.c render_image.c error_exit_handlings.c utils.c \
 			event_handling.c ft_printf.c ft_print_arguments.c color_palettes.c
-OBJ	=  main.o init.o input_check.o image.o error_exit_handlings.o utils.o \
+OBJ	=  main.o init.o input_check.o render_image.o error_exit_handlings.o utils.o \
 		event_handling.o ft_printf.o ft_print_arguments.o color_palettes.o 
 
 all:		$(NAME)

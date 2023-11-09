@@ -29,8 +29,9 @@ void    init_var(t_fractol *f)
     f->ci = 0.0;
     f->COO[0] = (WIDTH - 1) / 2;
     f->COO[1] = (HEIGHT - 1) / 2;
-    f->scale[0] = (WIDTH - 1) / 4;
-    f->scale[1] = (HEIGHT - 1) / -4;
+    f->ratio[0] = (WIDTH - 1) / SCALE;
+    f->ratio[1] = (HEIGHT - 1) / SCALE;
+    f->move = ((HEIGHT + WIDTH) / 2) / 10;
     f->x = 0;
     f->y = 0;
 }

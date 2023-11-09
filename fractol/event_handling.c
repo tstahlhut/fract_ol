@@ -26,14 +26,15 @@ void    zoom(int button, int x, int y, t_fractol *f)
     ft_printf("x = %i, y = %i", x, y);
     if (button == 4)
 	{
-        f->scale[0] *= 0.5;
-        f->scale[1] *= 0.5;
-		printf("scale: %f, COO: %f\n", f->scale[0], f->COO[0]);
+		f->COO[0] += ((((WIDTH -1) / 2) - x) * 1);
+		f->COO[1] += ((((HEIGHT -1) / 2) - y) * 1);
+        f->ratio[0] *= 2;
+        f->ratio[1] *= 2;
     }
     if (button == 5)
     {
-        f->scale[0] /= 0.5;
-        f->scale[1] /= 0.5;
+        f->ratio[0] /= 2;
+        f->ratio[1] /= 2;
     }
   //  mlx_destroy_image(f->mlx, f->img->img);
     //free(f->img);
@@ -51,56 +52,59 @@ int	x_close(t_fractol *f)
 
 /* deal_key: This function handles key events (when the keyboard is pressed).
 	If ESC (0xff1b) is pressed, the window is closed.
-	If + (43) is pressed, it zooms in by enhancing the scale and drawing a new
+	If + is pressed, it zooms in by enhancing the ratio and drawing a new
 	image.
-	if - (45) is pressed, it zooms out by decreasing the scale and drawing a new
+	if - is pressed, it zooms out by decreasing the ratio and drawing a new
 	image. */
 
 int	deal_key(int key, t_fractol *f)
 {
-	if (key == 0xff1b)
+	if (key == KEY_ESC)
 		close_window(f);
-	if (key == 43)
+	if (key == KEY_PLUS)
 	{
-		f->scale[0] /= 0.9;
-        f->scale[1] /= 0.9;
+		f->ratio[0] *= 2;
+        f->ratio[1] *= 2;
+		f->COO[0] *= 1.25;
+		f->COO[1] *= 1.25;
 		mlx_clear_window(f->mlx, f->win);
     	draw_image(f);
 	}
-	if (key == 45)
+	if (key == KEY_MINUS)
 	{
-		f->scale[0] *= 0.9;
-        f->scale[1] *= 0.9;
+		f->ratio[0] /= 2;
+        f->ratio[1] /= 2;
+		f->COO[0] -= (WIDTH -1) / 2;
+		f->COO[1] -= (HEIGHT -1) / 2;
 		mlx_clear_window(f->mlx, f->win);
     	draw_image(f);
 	}
-	if (key == 65361)
+	if (key == KEY_LEFT)
 	{
-		f->COO[0] += 70;
+		f->COO[0] += f->move;
 		mlx_clear_window(f->mlx, f->win);
     	draw_image(f);
 	}
-	if (key == 0xff53)
+	if (key == KEY_RIGHT)
 	{
-		f->COO[0] -= 70;
+		f->COO[0] -= f->move;
 		mlx_clear_window(f->mlx, f->win);
     	draw_image(f);
 	}
-	if (key == 65362)
+	if (key == KEY_UP)
 	{
-		f->COO[1] += 70;
+		f->COO[1] += f->move;
 		mlx_clear_window(f->mlx, f->win);
     	draw_image(f);
 	}
-	if (key == 65364)
+	if (key == KEY_DOWN)
 	{
-		f->COO[1] -= 70;
+		f->COO[1] -= f->move;
 		mlx_clear_window(f->mlx, f->win);
     	draw_image(f);
 	}
-	printf("C00: %f\n", f->COO[0]);
-	//else
-	//	ft_printf("keyboard toched: %i\n", key);
+	printf("C00: %f\n ratio: %f\n", f->COO[0], f->ratio[0]);
+	ft_printf("keyboard toched: %i\n", key);
 	return (0);	
 }
 
