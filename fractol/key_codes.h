@@ -13,7 +13,7 @@
 #ifndef KEY_CODES_H
 # define KEY_CODES_H
 
-# define KEY_PLUS 61
+# define KEY_PLUS 43 //61
 # define KEY_MINUS 45
 # define KEY_ESC 0xff1b
 

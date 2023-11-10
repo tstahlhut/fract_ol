@@ -60,8 +60,8 @@ int palette(int i)
 
 unsigned int palette_M(t_fractol *f, unsigned int i)
 {
-   // if (i >= MAX_ITERATIONS)
-   //     return (0x000000);
+   if (i >= MAX_ITERATIONS)
+        return (0x000000);
     if (f->palette == 0)
     { /*contours*/
         if (i <= (MAX_ITERATIONS / 3))
@@ -78,12 +78,12 @@ unsigned int palette_M(t_fractol *f, unsigned int i)
     }
     else if(f->palette == 2)
     {/*fireworks*/
-        if (i <= (MAX_ITERATIONS / 4))
-            return (0xFFFFFF + i);
-        else
+       // if (i <= (MAX_ITERATIONS / 4))
+        //    return (0xFFFFFF + i);
+       // else
             return (0xFFF0F0 - i * 16);
     }
-    else if (f->palette == 3)
+    /*else if (f->palette == 3)
     {
         if (i <= (MAX_ITERATIONS / 3))
             return (0x0000FF + i);
@@ -91,17 +91,17 @@ unsigned int palette_M(t_fractol *f, unsigned int i)
             return (f->color / i * 16);
         else
             return (f->color + i * 255);
-    }
+    }*/
     else if (f->palette == 4)
        return (f->color + (f->div * i));
        // return (16777215 / MAX_ITERATIONS * i);
 
     else if (f->palette == 5)
     {
-        if (i < 15)
-            return (0x0000FF + i);
-        else
-            return (16777215 / MAX_ITERATIONS * i);
+       // if (i < 15)
+      //      return (0x0000FF + i);
+       // else
+            return (f->color / MAX_ITERATIONS * i);
     }
     return (i);
 }
@@ -138,5 +138,7 @@ unsigned int palette_J(t_fractol *f, unsigned int i)
     {
         return (f->color + f->div * i + i);
     }
+    else if (f->palette == 5)
+         return (f->color + ((f->color - 0xFFFFFF) / MAX_ITERATIONS) * i);
     return (i);
 }

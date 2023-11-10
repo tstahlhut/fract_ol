@@ -22,7 +22,7 @@ void    init_zero(t_fractol *f)
 void    init_var(t_fractol *f)
 {
     init_zero(f);
-    f->color = 0x000000;
+    f->color = 0xFFFFFF;
     f->palette = 0;
     f->div = 1;
     f->cr = 0.0;

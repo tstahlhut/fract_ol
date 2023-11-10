@@ -20,8 +20,8 @@
 # include <math.h>
 # include "key_codes.h"
 
-# define WIDTH 700
-# define HEIGHT 700
+# define WIDTH 900
+# define HEIGHT 900
 # define SCALE 4 /*of coordinate system. if 6 it ranges from -3 to 3 */
 # define MOVE 70
 # define MAX_ITERATIONS 100

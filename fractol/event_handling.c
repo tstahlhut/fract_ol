@@ -19,25 +19,24 @@
 
 void    zoom(int button, int x, int y, t_fractol *f)
 {
-   // f->COO[0] = f->COO[0] + (f->COO[0] - x);
-	//f->COO[1] = f->COO[1] + (f->COO[1] - y);
-   // f->COO[0] = x;
-    //f->COO[1] = y;
-    ft_printf("x = %i, y = %i", x, y);
-    if (button == 4)
+   if (button == 4)
 	{
-		f->COO[0] += ((((WIDTH -1) / 2) - x) * 1);
-		f->COO[1] += ((((HEIGHT -1) / 2) - y) * 1);
-        f->ratio[0] *= 2;
+		f->COO[0] += (f->COO[0] - x);
+		f->COO[1] += (f->COO[1] - y);
+		f->ratio[0] *= 2;
         f->ratio[1] *= 2;
+		/*f->COO[0] += ((f->COO[0] - x) * 0.5);
+		f->COO[1] += ((f->COO[1] - y) * 0.5);
+        f->ratio[0] *= 1.5;
+        f->ratio[1] *= 1.5;*/
     }
     if (button == 5)
     {
+		f->COO[0] -= ((f->COO[0] - x) / 2);
+		f->COO[1] -= ((f->COO[1] - y) / 2);
         f->ratio[0] /= 2;
         f->ratio[1] /= 2;
     }
-  //  mlx_destroy_image(f->mlx, f->img->img);
-    //free(f->img);
     mlx_clear_window(f->mlx, f->win);
     draw_image(f);
 }
@@ -65,8 +64,8 @@ int	deal_key(int key, t_fractol *f)
 	{
 		f->ratio[0] *= 2;
         f->ratio[1] *= 2;
-		f->COO[0] *= 1.25;
-		f->COO[1] *= 1.25;
+		f->COO[0] += (f->COO[0] - ((WIDTH - 1) / 2));
+		f->COO[1] += (f->COO[1] - ((HEIGHT - 1) / 2));
 		mlx_clear_window(f->mlx, f->win);
     	draw_image(f);
 	}
@@ -74,8 +73,8 @@ int	deal_key(int key, t_fractol *f)
 	{
 		f->ratio[0] /= 2;
         f->ratio[1] /= 2;
-		f->COO[0] -= (WIDTH -1) / 2;
-		f->COO[1] -= (HEIGHT -1) / 2;
+		f->COO[0] -= ((f->COO[0] - ((WIDTH - 1) / 2)) / 2);
+		f->COO[1] -= ((f->COO[1] - ((HEIGHT - 1) / 2)) / 2);
 		mlx_clear_window(f->mlx, f->win);
     	draw_image(f);
 	}

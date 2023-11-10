@@ -107,7 +107,7 @@ double	conv_to_coord(double x, int i, t_fractol *f)
 	//double	ratio;
 
 	//ratio = (WIDTH - 1) / f->scale[i];                                            
-	z = (x - f->COO[i]) / f->scale[i];
+	z = (x - f->COO[i]) / f->ratio[i];
     //printf("c = %f, z = %f", x, z);
 	return (z);
 }

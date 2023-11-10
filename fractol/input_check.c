@@ -24,7 +24,7 @@ void	user_msg(void)
     ft_printf("4. [COLOR PALETTE] (optional):\n");
     ft_printf("\tEnter integer 0 to 5 to choose color palette\n");
     ft_printf("\tDefault: 0\n\n");
-    ft_printf("5. [COLOR] (optional)\n");
+    ft_printf("5. [COLOR] (optional in case you chose color palette 5)\n");
     ft_printf("\tEnter a color in hex from 0x000000 to 0xFFFFFF\n");
     ft_printf("\tDefault: 0xFFFFFF\n\n");
    
