@@ -23,7 +23,6 @@
 # define WIDTH 900
 # define HEIGHT 900
 # define SCALE 4 /*of coordinate system. if 6 it ranges from -3 to 3 */
-# define MOVE 70
 # define MAX_ITERATIONS 100
 
 typedef struct s_data
@@ -76,8 +75,13 @@ double			conv_to_coord(double x, int i, t_fractol *f);
 void			draw_image(t_fractol *f);
 
 /*color_palettes.c*/
-unsigned int	palette_m(t_fractol *f, unsigned int i);
-unsigned int	palette_j(t_fractol *f, unsigned int i);
+unsigned int	palette_0(unsigned int i);
+unsigned int	palette_5(t_fractol *f, unsigned int i);
+unsigned int	palette_1(unsigned int i, t_fractol *f);
+unsigned int	palette_2(unsigned int i);
+unsigned int	palette_3(unsigned int i, t_fractol *f);
+unsigned int	palette_4(unsigned int i, t_fractol *f);
+unsigned int	color_palette(t_fractol *f, unsigned int i);
 
 /*fractol.c*/
 void			user_msg(void);

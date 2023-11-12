@@ -35,7 +35,7 @@ void	init_set(char *str, t_fractol *f)
 {
 	if (!str || *str == '\0')
 		user_msg();
-	if (str[0] != '1' && str[0] != '2')
+	if (str[0] != 'M' && str[0] != 'J')
 		user_msg();
 	if (str[1] == '\0')
 		f->set = str[0];

@@ -6,7 +6,7 @@
 /*   By: tstahlhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 09:44:10 by tstahlhu          #+#    #+#             */
-/*   Updated: 2023/11/11 15:37:30 by tstahlhu         ###   ########.fr       */
+/*   Updated: 2023/11/12 10:38:39 by tstahlhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 unsigned int	ft_atox(char *str)
 {
 	unsigned int	ret;
-	int		i;
+	int				i;
 
 	if (str[0] != '0' || str[1] != 'x')
 		return (42);
@@ -45,6 +45,7 @@ double	ft_atod(char *str)
 	double	ret;
 	double	sign;
 	double	div;
+	int		i;
 
 	sign = 1;
 	div = 0.1;
