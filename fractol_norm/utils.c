@@ -12,30 +12,27 @@
 
 #include "fractol.h"
 
-unsigned int	ft_atox(char *str)
+/* ft_atox_color */
+
+unsigned int	ft_atox_color(char *str)
 {
 	unsigned int	ret;
 	int				i;
 
-	if (str[0] != '0' || str[1] != 'x')
-		return (42);
-	i = 2;
+	i = 0;
 	ret = 0;
 	while (str[i] != '\0')
 	{
 		if ('0' <= str[i] && str[i] <= '9')
 			ret = ret * 16 + str[i] - '0';
 		else if ('A' <= str[i] && str[i] <= 'F')
-		{
-			printf("%d * 16 + %i - %i\n", ret, str[i], 'A');
 			ret = ret * 16 + str[i] - 'A' + 10;
-		}
 		else
-			return (42);
+			return (0x1000000);
 		i++;
 	}
 	if (ret > 0xFFFFFF)
-		return (42);
+		return (0x1000000);
 	else
 		return (ret);
 }

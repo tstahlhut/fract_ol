@@ -39,6 +39,8 @@ void	init_set(char *str, t_fractol *f)
 		user_msg();
 	if (str[1] == '\0')
 		f->set = str[0];
+	else
+		user_msg();
 }
 
 int	init_palette(char *str, t_fractol *f)
@@ -50,6 +52,8 @@ int	init_palette(char *str, t_fractol *f)
 		f->palette = str[0] - '0';
 		return (1);
 	}
+	else
+		user_msg();
 	return (0);
 }
 
@@ -58,11 +62,11 @@ int	init_color(char *str, t_fractol **f)
 	if (!str || *str == '\0')
 		user_msg();
 	if (str[0] != '0' && str[1] != 'x')
-		return (0);
-	(*f)->color = ft_atox(str);
-	if ((*f)->color == 42)
+		user_msg();
+	(*f)->color = ft_atox_color(str + 2);
+	if ((*f)->color == 0x1000000)
 	{
-		(*f)->color = 0xFFFFFF;
+		user_msg();
 		return (0);
 	}
 	return (1);

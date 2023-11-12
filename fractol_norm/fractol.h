@@ -15,14 +15,14 @@
 
 # include "mlx.h"
 # include "ft_printf.h"
-# include <unistd.h> /*write*/
-# include <stdlib.h> /*exit*/
+# include <unistd.h>
+# include <stdlib.h>
 # include <math.h>
 # include "key_codes.h"
 
 # define WIDTH 900
 # define HEIGHT 900
-# define SCALE 4 /*of coordinate system. if 6 it ranges from -3 to 3 */
+# define SCALE 4
 # define MAX_ITERATIONS 100
 
 typedef struct s_data
@@ -42,14 +42,14 @@ typedef struct s_fractol
 	t_data			*img;
 	unsigned int	color;
 	int				palette;
-	double			cr;		/* real part of complex number c */
-	double			ci;		/* imaginary part of complex number c */
-	double			coo[2];		/* center of origin (O; Mittelpunkt: M) */
-	double			ratio[2];	/* CoO[0] & ratio[0] are the reference points for x, ..[1] for y*/
+	double			cr;
+	double			ci;
+	double			coo[2];
+	double			ratio[2];
 	double			move;
-	int				x;			/* mouse position */
+	int				x;
 	int				y;
-}					t_fractol;/* the scale for y has to be negative for the further calculations to be right*/
+}					t_fractol;
 
 /* init.c */
 void			init_var(t_fractol *f);
@@ -93,7 +93,7 @@ void			close_window(t_fractol *f);
 void			error_exit(t_fractol *f, char *message);
 
 /*utils.c*/
-unsigned int	ft_atox(char *str);
+unsigned int	ft_atox_color(char *str);
 double			ft_atod(char *str);
 
 #endif

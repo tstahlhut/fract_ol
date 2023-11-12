@@ -35,29 +35,6 @@ void	user_msg(void)
 	exit (0);
 }
 
-/*void	check_input(int argc, char **argv, t_fractol *f)
-{
-	if (argc == 2 && argv[1][1] == '\0')
-	{
-		if (argv[1][0] == '1' || argv[1][0] == '2')
-		{
-			f->set = argv[1][0];
-			return ;
-		}
-	}
-	if (argc == 4 && *argv[1] == '2')
-	{
-		f->set = argv[1][0];
-		f->cr = ft_atod(argv[2]);
-		printf("cr = %f\n", f->cr);
-		f->ci = ft_atod(argv[3]);
-		printf("ci = %f\n", f->ci);
-		return ;
-	}
-	else
-		user_msg();	
-}*/
-
 void	check_input(int argc, char **argv, t_fractol *f)
 {
 	int	i;
@@ -66,10 +43,7 @@ void	check_input(int argc, char **argv, t_fractol *f)
 	if (argc < 2 || argc > 6)
 		user_msg();
 	if (argc >= 2)
-	{
-		printf("argv[%i]: %s", 1, argv[1]);
 		init_set(argv[1], f);
-	}
 	if (f->set == 'J')
 	{
 		f->ci = 0.8;
