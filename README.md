@@ -129,4 +129,66 @@ https://www.youtube.com/watch?v=7MotVcGvFMg
 
 Sources: https://ohmyphysics.com/blogs/news/introduction-to-fractals
 Wikipedia (en & de on the fractals, the sets, etc)
- 
+
+## Usage
+
+Clone the repository and enter cloned directory:
+
+    git clone git@github.com:tstahlhut/fract_ol.git
+    cd fract_ol
+
+Build minilibx library:
+
+    cd minilibx-linux
+    make
+
+Build fractol executive:
+
+    cd ..
+    make
+
+Run program. If you just run
+
+    ./fractol
+
+an explanation of what parameters are allowed will be displayed in the terminal. At the least, you have to specify the first parameter: M or J, to see either the Mandelbrot set (M) or the Julia set (J).
+
+    ./fractol M
+    ./fractol J
+
+A window opens and displays the set. 
+
+### Zoom
+
+You can zoom in and out with the mouse wheel or the keys '+' or '-'. Zooming in with the mouse wheel zooms into the mouse position. Zooming in with the keys always zooms in and out of the center of the screen.
+
+### Close
+
+You can close the window by clicking on the 'x' on the right top corner or by pressing ESC.
+
+### Colors
+
+There are 6 color palettes available, just enter as second argument an integer between 0 and 5, for example:
+
+    ./fractol M 1
+
+If you chose palette 5, you can choose a color, too. Enter a color in hex from 0x000000 to 0xFFFFFF, for example:
+
+    ./fractol M 5 0x000000
+
+### Julia Set
+
+As there are many Julia sets, you can choose another Julia set by specifing the complex number c as two decimals, each ranging from -2 to 2, for example:
+
+    ./fractol J -1.0 -0.4
+
+If you want to change the color, too, do so after the parameters for the complex number, for example:
+
+    ./fractol J -1.0 -0.4 2
+
+Alternatively, you can just start with the default Julia set and then click with the mouse at some point of the Julia set and the set will change. By clicking you choose the coordinates of the next complex number c and a new Julia set will be calculated on this basis.
+
+That's it, have fun!
+
+
+  
