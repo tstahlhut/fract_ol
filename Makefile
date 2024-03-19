@@ -6,15 +6,15 @@
 #    By: tstahlhu <tstahlhu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/13 13:05:13 by tstahlhu          #+#    #+#              #
-#    Updated: 2024/03/19 12:19:21 by tstahlhu         ###   ########.fr        #
+#    Updated: 2024/03/19 12:22:18 by tstahlhu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= fractol
 CC	= cc
 CFLAGS	= -Wall -Werror -Wextra
-I_PATH	= ./minilibx-linux/ #/usr/local/include
-L_PATH	= ./minilibx-linux/  #/usr/local/lib/
+I_PATH	= ./minilibx-linux/
+L_PATH	= ./minilibx-linux/
 LIB	= -lmlx -lXext -lX11 -lm
 
 CFILES	= fractol.c init.c input_check.c render_image.c error_exit_handlings.c \
